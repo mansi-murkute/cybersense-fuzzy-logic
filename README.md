@@ -1,110 +1,130 @@
-# 🛡️ CyberSense AI — Fuzzy-Based Intelligent Cyber Threat Detection
+## cybersense ai - cyber threat detection system
 
-A real-time cyber threat detection and risk assessment system built with
-**Fuzzy Logic**, **Python**, and **Streamlit**.
+cybersense ai is a cyber security project made using python, streamlit, and fuzzy logic. it checks network activity, detects possible cyber attacks, and gives a risk score.
 
----
+## how to run
 
-## 🚀 Quick Start
+install all required files:
 
-### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Run the app
+run the project:
+
 ```bash
 streamlit run app.py
 ```
 
----
+## project files
 
-## 📦 Project Structure
-```
-cyber_threat_app/
-├── app.py                  # Main Streamlit dashboard
-├── fuzzy_engine.py         # Fuzzy logic inference engine (scikit-fuzzy)
-├── attack_simulator.py     # Synthetic network event generator
-├── alert_system.py         # Gmail SMTP email alerts
-├── virustotal_scanner.py   # VirusTotal API file scanner
-└── requirements.txt
-```
+* app.py - main dashboard
+* fuzzy_engine.py - fuzzy logic calculations
+* attack_simulator.py - creates sample attacks
+* alert_system.py - sends email alerts
+* virustotal_scanner.py - scans files using virustotal
+* requirements.txt - required libraries
 
----
+## features
 
-## 🧩 Features
+### attack simulation
 
-| Feature | Description |
-|---|---|
-| **Live Attack Simulation** | Mimics Port Scan, Brute Force, DDoS, Stealth Recon, Zero-Day |
-| **Fuzzy Risk Scoring** | 4 input variables → Mamdani FIS → 0–100 risk score |
-| **Real-Time Dashboard** | Live gauge, scrolling log, color-coded threat levels |
-| **Email Alerts** | Sends Gmail alert when CRITICAL threat is detected |
-| **VirusTotal Scanner** | Upload any file → 70+ AV engines → fuzzy threat score |
-| **Analytics Tab** | Charts: distribution, timeline, attack frequency |
-| **Fuzzy Explainer** | Interactive manual assessor + rule explanation |
-| **CSV Export** | Download full session threat log |
+can simulate:
 
----
+* port scan
+* brute force attack
+* ddos attack
+* stealth recon attack
+* zero-day attack
 
-## 🔧 Configuration
+### risk score
 
-### Email Alerts (Gmail)
-1. Enable 2FA on your Gmail account
-2. Go to: Google Account → Security → App Passwords
-3. Generate a 16-character App Password
-4. Enter your Gmail address + App Password in the sidebar
+uses fuzzy logic to calculate a risk score from 0 to 100.
 
-### VirusTotal Scanner
-1. Sign up at https://www.virustotal.com (free)
-2. Go to your profile → API Key
-3. Paste the key in the VirusTotal Scanner tab
-- Free tier: **500 lookups/day**, **4 requests/minute**
+### dashboard
 
----
+shows:
 
-## 🧠 Fuzzy Logic System
+* risk level
+* attack logs
+* threat status
 
-### Input Variables
-| Variable | Range | Fuzzy Sets |
-|---|---|---|
-| `packet_rate` | 0–2000 pkt/s | low, medium, high, very_high |
-| `failed_logins` | 0–100 | none, few, many, extreme |
-| `port_diversity` | 0–1000 ports | single, low, medium, high |
-| `connection_duration` | 0–3600 sec | brief, normal, extended, persistent |
+### email alerts
 
-### Output Variable
-| Score | Level |
-|---|---|
-| 0–25 | 🟢 LOW |
-| 25–50 | 🟡 MEDIUM |
-| 50–75 | 🟠 HIGH |
-| 75–100 | 🔴 CRITICAL |
+sends an email when a critical threat is found.
 
-### Sample Rules
-```
-IF packet_rate IS very_high AND port_diversity IS high  → risk IS critical
-IF failed_logins IS extreme                             → risk IS critical
-IF packet_rate IS high AND failed_logins IS few         → risk IS high
-IF packet_rate IS medium AND failed_logins IS none      → risk IS medium
-IF packet_rate IS low AND failed_logins IS none         → risk IS low
-```
+### virustotal scanner
 
----
+users can upload a file and check if it is dangerous.
 
-## 📸 Demo Flow (for presentations)
-1. Launch app → open in browser
-2. Select **"DDoS Wave"** scenario, intensity **9** → hit **START**
-3. Watch real-time gauge spike to CRITICAL
-4. Switch to **"Stealth Recon"** → show LOW/MEDIUM detections
-5. Open **Analytics** tab → show distribution chart
-6. Open **Fuzzy Explainer** → manually test extreme values
-7. Demo **VirusTotal tab** with any test file
+### analytics
 
----
+shows charts and attack statistics.
 
-## 🎓 Academic Notes
-- Inference method: **Mamdani** (most interpretable, ideal for academic work)
-- Defuzzification: **Centroid** method
-- All fuzzy sets use trapezoidal/triangular membership functions
-- System is fully explainable — no black-box ML
+### fuzzy explainer
+
+helps users understand how the risk score is calculated.
+
+### csv download
+
+allows users to download the threat log.
+
+## setup
+
+### gmail alerts
+
+* turn on 2-step verification in gmail
+* create an app password
+* enter gmail and app password in the project
+
+### virustotal
+
+* create a free virustotal account
+* copy your api key
+* paste it into the scanner tab
+
+free account limits:
+
+* 500 scans per day
+* 4 requests per minute
+
+## fuzzy logic inputs
+
+* packet rate (0-2000)
+* failed logins (0-100)
+* port diversity (0-1000)
+* connection duration (0-3600)
+
+## risk levels
+
+* 0-25 = low
+* 25-50 = medium
+* 50-75 = high
+* 75-100 = critical
+
+## sample rules
+
+* very high packet rate + high port diversity = critical risk
+* extreme failed logins = critical risk
+* high packet rate + few failed logins = high risk
+* medium packet rate + no failed logins = medium risk
+* low packet rate + no failed logins = low risk
+
+## demo
+
+1. start the app
+2. select ddos wave
+3. choose intensity 9
+4. click start
+5. see the risk level increase
+6. open analytics to view charts
+7. test values in fuzzy explainer
+8. scan a file in virustotal
+
+## notes
+
+* uses mamdani fuzzy logic
+* uses centroid method
+* uses triangular and trapezoidal membership functions
+* easy to understand and explain
+* does not use machine learning
